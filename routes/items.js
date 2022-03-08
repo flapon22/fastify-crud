@@ -5,6 +5,7 @@ import {
     deleteItem,
     updateItem,
 } from '../controllers/items.js';
+import cool from 'cool-ascii-faces';
 
 const item = {
     type: 'object',
@@ -75,6 +76,10 @@ const updateItemOpts = {
 };
 
 function itemRoutes(fastify, options, done) {
+    fastify.get('/', function (request, reply) {
+        reply.send(cool());
+    });
+
     fastify.get('/items', getItemsOpts);
 
     fastify.get('/items/:key', getItemOpts);
