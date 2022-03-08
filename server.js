@@ -20,7 +20,7 @@ const port = 5000;
 
 const start = async () => {
     try {
-        await fastify.listen(process.env.PORT || port);
+        await fastify.listen(process.env.PORT || port, '0.0.0.0');
     } catch (error) {
         fastify.log.error(error);
         process.exit(1);
