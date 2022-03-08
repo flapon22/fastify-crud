@@ -16,11 +16,11 @@ fastify.register(fastifySwagger, {
 
 fastify.register(itemRoutes);
 
-const PORT = 5000;
+const port = 5000;
 
 const start = async () => {
     try {
-        await fastify.listen(PORT);
+        await fastify.listen(process.env.PORT || port);
     } catch (error) {
         fastify.log.error(error);
         process.exit(1);
